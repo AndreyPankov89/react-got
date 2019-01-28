@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 import './errorMessage.css'
 
 export default class ErrorMessage extends Component{
-    
-    constructor(props){
-        super(props);
-    }
+
     
     render(){
         const {code} = this.props;
