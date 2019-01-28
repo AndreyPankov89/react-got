@@ -1,7 +1,8 @@
 import React from 'react';
 import './header.css';
 
-const Header = () => {
+const Header = ({onToggleVisible, visibleButtonText}) => {
+    
     return (
         <div className="header-block">
             <h3 className="header-title">
@@ -10,6 +11,9 @@ const Header = () => {
                 </a>
             </h3>
             <ul className="header-links">
+                <li>
+                    <button onClick={onToggleVisible}>Char {visibleButtonText}</button>
+                </li>
                 <li>
                     <a href="#">Characters</a>
                 </li>
