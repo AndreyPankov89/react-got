@@ -9,7 +9,7 @@ export default class GotService{
         //проверяем на ошибки сервера
 
         if (!res.ok){
-            throw new Error(`Couldn't fetch ${this._apiBase}${url}, status: ${res.status}`);
+            throw new Error(res.status);
         }
 
         return await res.json();
