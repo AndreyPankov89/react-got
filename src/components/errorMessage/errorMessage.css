@@ -1,7 +1,7 @@
-.random-block img{
+.error-img{
     width: 100%;
 }
-.random-block span{
+.error-text{
     display: block;
     text-align: center;
     font-size: 25px;

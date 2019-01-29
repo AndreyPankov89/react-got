@@ -24,14 +24,22 @@ export default class ErrorMessage extends Component{
                 errText = "Error 410: resourse remove";
                 break;
             }
+            case 'fatal':{
+                //imgName = '';
+                errText = "Fatal Error in application"
+                break;
+            }
             default:{
-
+                break;
             }
         }
         return (
             <>
-                <span>{errText}</span>
-                <img src={process.env.PUBLIC_URL + imgName} alt='error'/>
+                <span className="error-text">{errText}</span>
+                <img
+                    className='error-img'
+                    src={process.env.PUBLIC_URL + imgName} 
+                    alt='error'/>
                 
             </>
         )
