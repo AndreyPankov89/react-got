@@ -3,19 +3,22 @@ import {Col, Row, Container} from 'reactstrap';
 import Header from '../header';
 import RandomChar from '../randomChar';
 import CharacterPage from '../pages/characterPage/'
-import BookPage from '../pages/bookPage/'
-import HousePage from '../pages/housePage/'
+import BookPage from '../pages/bookPage/';
+import HousePage from '../pages/housePage/';
+import BooksItem from '../pages/booksItem/';
+import MainPage from '../pages/mainPage';
 import ErrorMessage from '../errorMessage';
-
-import gotService from '../../services/gotService'
+import gotService from '../../services/gotService';
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import './app.css';
 export default class  App extends Component {
     
 
     gotService = new gotService();
 
     state = {
-        visible: true,
-        visibleButtonText: 'off',
+        visible: false,
+        visibleButtonText: 'on',
         selectedChar: null,
         error: false
     }
@@ -51,49 +54,50 @@ export default class  App extends Component {
 
         const RandomCharComp = visible ? <RandomChar/> : null;
         return (
-            <> 
-                <Container>
-                    <Header 
-                        onToggleVisible={this.toggleVisible}
-                        visibleButtonText={visibleButtonText}
-                        />
-                </Container>
-                <Container>
-                    <Row>
-                        <Col lg={{size: 5, offset: 0}}>
-                            {RandomCharComp}
-                        </Col>
-                    </Row>
-                    <CharacterPage/>
-                    <BookPage/>
-                    <HousePage/>
-                    {/*<Row>
-                     <Col md='6'>
-                        <ItemList 
-                            onCharSelected={this.onCharSelected}
-                            onError={this.onError}
-                            getData={this.gotService.getAllBooks}
-                        />
-                    </Col>
-                    <Col md='6'>
-                        <CharDetails charId={this.state.selectedChar}/>
-                    </Col>
-                    </Row>
-                    <Row>
-                        <Col md='6'>
-                            <ItemList 
-                                onCharSelected={this.onCharSelected}
-                                onError={this.onError}
-                                getData={this.gotService.getAllHouses}
+            <Router>
+                <div className="app"> 
+                    <Container>
+                        <Header 
+                            onToggleVisible={this.toggleVisible}
+                            visibleButtonText={visibleButtonText}
                             />
-                        </Col>
-                        <Col md='6'>
-                            <CharDetails charId={this.state.selectedChar}/>
-                        </Col>
-                    </Row> */}
-                    
-                </Container>
-            </>
+                    </Container>
+                    <Container>
+                        <Row>
+                            <Col lg={{size: 5, offset: 0}}>
+                                {RandomCharComp}
+                            </Col>
+                        </Row>
+                        <Switch>
+                            <Route path='/' exact component={MainPage}/>
+                            <Route path="/characters" component={CharacterPage}/>
+                            <Route path="/houses" component={HousePage}/>
+                            <Route path="/books" exact component={BookPage}/>
+                            <Route path="/books/:id" render={
+                                ({match}) => { 
+                                    const {id} = match.params;
+                                    return <BooksItem bookId={id}/>
+                                }
+                                
+                            }/>
+                            <Route render={
+                                () => {
+                                    return(
+                                        <div className='home-error'>
+                                        <Link to='/'>Go home</Link>
+                                        <ErrorMessage code='404'/>
+                                        </div>
+                                    )
+                                }
+                            }/>
+
+                        </Switch>
+                        {/* <CharacterPage/>
+                        <BookPage/>
+                        <HousePage/> */}
+                    </Container>
+                </div>
+            </Router>
         );
     }
 };

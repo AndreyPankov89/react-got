@@ -79,8 +79,15 @@ export default class ItemDetails extends Component {
         
         const content = loading ? <Spinner/> : (error ? <ErrorMessage code={errorCode}/> : <View item={item} what={what}>{children}</View>);
 
+
+        let small = '';
+
+        if (what === 'book'){
+            small='small'
+        }
+
         return (
-            <div className="item-details rounded">
+            <div className={`item-details rounded ${small}`}>
                {content}
             </div>
         );
@@ -99,8 +106,9 @@ class View extends Component {
         }
         const {name} = item;
 
+
         return (
-            <>
+            <div>
                     <h4>{name}</h4>
                     <ul className="list-group list-group-flush">
                         {
@@ -109,7 +117,7 @@ class View extends Component {
                             })
                         }
                     </ul>
-            </>
+            </div>
         )
     }    
 }
