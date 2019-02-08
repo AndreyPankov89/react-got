@@ -25,11 +25,6 @@ export default class ItemList extends Component {
 
 
     onError = (err) => {
-        // this.setState({
-        //     error: true,
-        //     loading: false,
-        //     errorCode: err.message
-        // })
         this.props.onError(err)
     }
 

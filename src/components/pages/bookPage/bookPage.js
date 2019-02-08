@@ -48,4 +48,5 @@ class BookPage extends Component{
     }
 }
 
+export {BookPage};
 export default withRouter(BookPage);

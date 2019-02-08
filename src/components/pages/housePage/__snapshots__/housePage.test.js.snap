@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <HousePage/> testing shap & state HousePage have rendered correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <HouserPage />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "left": <ItemList
+        getData={[Function]}
+        onError={[Function]}
+        onItemSelected={[Function]}
+        renderItem={[Function]}
+      />,
+      "right": <ItemDetails
+        getItem={[Function]}
+        itemId={null}
+        what="house"
+      >
+        <Field
+          field="region"
+          label="Region"
+        />
+        <Field
+          field="words"
+          label="Words"
+        />
+        <Field
+          field="titles"
+          label="Titles"
+        />
+        <Field
+          field="overlord"
+          label="Overlord"
+        />
+        <Field
+          field="ancestralWeapons"
+          label="Ancestral Weapone"
+        />
+      </ItemDetails>,
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "left": <ItemList
+          getData={[Function]}
+          onError={[Function]}
+          onItemSelected={[Function]}
+          renderItem={[Function]}
+        />,
+        "right": <ItemDetails
+          getItem={[Function]}
+          itemId={null}
+          what="house"
+        >
+          <Field
+            field="region"
+            label="Region"
+          />
+          <Field
+            field="words"
+            label="Words"
+          />
+          <Field
+            field="titles"
+            label="Titles"
+          />
+          <Field
+            field="overlord"
+            label="Overlord"
+          />
+          <Field
+            field="ancestralWeapons"
+            label="Ancestral Weapone"
+          />
+        </ItemDetails>,
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

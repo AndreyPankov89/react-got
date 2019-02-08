@@ -20,12 +20,12 @@ export default class GotService{
 
     getAllCharacters = async () => {
         const res = await this.getResource("/characters?page=15&pageSize=10");
-        return res.map(this._tranfornChar);
+        return res.map(this._tranformChar);
     }
     
     getCharacter = async (id) => {
         const res = await this.getResource(`/characters/${id}`);
-        return this._tranfornChar(res);
+        return this._tranformChar(res);
     }
 
     getAllBooks = async () => {
@@ -47,7 +47,7 @@ export default class GotService{
         return this._transformHouse(res);
     }
 
-    _tranfornChar = (char)=>{
+    _tranformChar = (char)=>{
         return{
             name: char.name,
             gender: char.gender || this._noData,
